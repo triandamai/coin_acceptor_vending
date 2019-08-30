@@ -1,8 +1,16 @@
 /*/
  * 
  * 
- * Trian Damai
- * 
+ *  Trian Damai 
+ *  02 august 2019 
+ *  using coin acceptor jy-923 (
+ *                              SignalOutput = pulse, 
+ *                              Power= 12v,
+ *                              Can save 3 type of coin
+ *                              )
+ * for more contact me 
+ *                    triannurizkillah@gmail.com
+ *                    
  *
 /*/
 #include <Servo.h>
