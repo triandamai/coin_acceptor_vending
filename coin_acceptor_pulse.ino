@@ -28,7 +28,7 @@ Servo servo6; //servo6.attach(41);
   lcd4 = 53 lcd6 = 51  lcd11 = 49 lcd12 = 47  lcd13 = 45 lcd14 = 43
 */
 LiquidCrystal lcd(53,51,49,47,45,43);
-
+//Inisiasi variabel running text
 int i = 0;
 
 int j = 0;
