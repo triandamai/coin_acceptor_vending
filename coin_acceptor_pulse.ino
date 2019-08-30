@@ -20,6 +20,15 @@ Servo servo6; //servo6.attach(41);
   lcd4 = 53 lcd6 = 51  lcd11 = 49 lcd12 = 47  lcd13 = 45 lcd14 = 43
 */
 LiquidCrystal lcd(53,51,49,47,45,43);
+
+int i = 0;
+
+int j = 0;
+
+int k = 0;
+
+int delayTime2 = 350; // Delay between shifts
+
 /*
 * pin pushButton
 */
@@ -96,7 +105,10 @@ void setup() {
 }
 
 void loop() {
-  
+  lcd.clear();
+  scrollInFromRight(0, ((char *)"Menggunakan Uang Pas"));
+  scrollInFromRight(1, ((char *)"Menggunakan uang koin Rp 1000 dan Rp 500 silver"));
+  lcd.clear();
   //detect coin
   if (pulse > 0)
     {
@@ -588,5 +600,35 @@ void kontrolBuzzer(boolean nyala){
       //delay(600);
     }
 }
+
+void scrollInFromLeft (int line, char str1[]) {
+  // test
+  i = 40 - strlen(str1);
+  line = line - 1;
+  for (j = i; j <= i + 16; j++) {
+    for (k = 0; k <= 15; k++) {
+      lcd.print(" "); // Clear line
+    }
+    lcd.setCursor(j, line);
+    lcd.print(str1);
+    delay(delayTime2);
+  }
+}
+
+void scrollInFromRight (int line, char str1[]) {
+  //
+  i = strlen(str1);
+    for (j = 16; j >= 0; j--) {
+      lcd.setCursor(0, line);
+      for (k = 0; k <= 15; k++) {
+        lcd.print(" "); // Clear line
+      }
+      lcd.setCursor(j, line);
+      lcd.print(str1);
+      delay(delayTime2);
+    }
+}
+
+
 
 
