@@ -106,10 +106,13 @@ void setup() {
 
 void loop() {
   lcd.clear();
-  scrollInFromRight(0, ((char *)"Menggunakan Uang Pas"));
-  scrollInFromRight(1, ((char *)"Menggunakan uang koin Rp 1000 dan Rp 500 silver"));
+  //karena sudah depreceated jadi di cast stringnya jadi char
+  
+  scrollInFromLeft(0, ((char *)"Menggunakan Uang Pas"));
+  scrollInFromLeft(1, ((char *)"Menggunakan uang koin Rp 1000 dan Rp 500 silver"));
   lcd.clear();
-  //detect coin
+  
+  //detkso jika ada koin masuk
   if (pulse > 0)
     {
     delay (600);   // sambil nunggu koin lain
@@ -601,8 +604,10 @@ void kontrolBuzzer(boolean nyala){
     }
 }
 
+/*
+runing text dari kiri
+*/
 void scrollInFromLeft (int line, char str1[]) {
-  // test
   i = 40 - strlen(str1);
   line = line - 1;
   for (j = i; j <= i + 16; j++) {
@@ -615,8 +620,11 @@ void scrollInFromLeft (int line, char str1[]) {
   }
 }
 
+/*
+  running text dari kanan
+*/
 void scrollInFromRight (int line, char str1[]) {
-  //
+  
   i = strlen(str1);
     for (j = 16; j >= 0; j--) {
       lcd.setCursor(0, line);
